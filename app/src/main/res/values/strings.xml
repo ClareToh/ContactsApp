@@ -2,10 +2,12 @@
     <string name="app_name">Contacts</string>
     <string name="app_bar_title">Contacts</string>
 
-
     <string name="add_contact">+</string>
     <string name="edit_appbar_button">Edit</string>
     <string name="done_appbar_button">Done</string>
+
+    <string name="Contacts">Contacts</string>
+
 
 
 </resources>
