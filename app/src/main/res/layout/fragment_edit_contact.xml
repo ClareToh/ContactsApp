@@ -8,13 +8,14 @@
     tools:context=".EditContactFragment">
 
     <ImageView
-        android:id="@+id/editContactImageView"
+        android:id="@+id/edit_contact_imageView"
         android:layout_width="wrap_content"
         android:layout_height="100dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginVertical="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="20dp"
         android:src="@drawable/image_potrait_placeholder" />
 
 
@@ -23,7 +24,7 @@
         android:id="@+id/edit_contactID_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/editContactImageView"
+        android:layout_below="@+id/edit_contact_imageView"
         android:layout_marginVertical="8dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="-140dp"
@@ -35,7 +36,7 @@
         android:id="@+id/edit_contactID_value_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/editContactImageView"
+        android:layout_below="@+id/edit_contact_imageView"
         android:layout_marginVertical="8dp"
         android:layout_marginStart="160dp"
         android:layout_marginTop="-233dp"
@@ -67,6 +68,7 @@
         android:layout_marginVertical="8dp"
         android:layout_marginStart="160dp"
         android:layout_marginTop="-233dp"
+        android:ems="7"
         android:text="FirstName"
         android:textSize="20dp" />
 
@@ -95,6 +97,7 @@
         android:layout_marginVertical="8dp"
         android:layout_marginStart="160dp"
         android:layout_marginTop="-233dp"
+        android:ems="7"
         android:text="LastName"
         android:textSize="20dp" />
 

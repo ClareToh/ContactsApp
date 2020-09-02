@@ -1,11 +1,7 @@
 package com.example.contactsapp;
 
-import android.app.Activity;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
@@ -25,11 +21,13 @@ import com.bumptech.glide.request.RequestOptions;
  * A simple {@link Fragment} subclass.
  */
 public class ViewContactFragment extends Fragment {
-    private Contact mCurrentContact;
+    private Button mEditButton;
+
+    private Contact mSelectedContact;
     private ImageView mImageView;
     private TextView mNameTextView;
     private TextView mContactIDTextView;
-    private Button mEditButton;
+
 
     public ViewContactFragment() {
         // Required empty public constructor
@@ -49,13 +47,18 @@ public class ViewContactFragment extends Fragment {
 
         //Change the buttons on the app bar layout
         ((MainActivity) getActivity()).findViewById(R.id.add_contact_button).setVisibility(View.GONE);
+        ((MainActivity) getActivity()).findViewById(R.id.done_button).setVisibility(View.GONE);
+
         mEditButton = ((MainActivity) getActivity()).findViewById(R.id.edit_button);
         mEditButton.setVisibility(View.VISIBLE);
         mEditButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 NavController navController = NavHostFragment.findNavController(ViewContactFragment.this);
-                navController.navigate(ViewContactFragmentDirections.actionViewContactFragmentToEditContactFragment());
+                navController.navigate(ViewContactFragmentDirections.actionViewContactFragmentToEditContactFragment(mSelectedContact));
+
+
             }
         });
 
@@ -65,16 +68,16 @@ public class ViewContactFragment extends Fragment {
         mNameTextView = view.findViewById(R.id.view_contact_name_imageView);
         mContactIDTextView = view.findViewById(R.id.view_contactID_value_textView);
 
-        //TODO: remove and change to get actual data
-        mCurrentContact = new Contact("George", "Bluth", "https://s3.amazonaws.com/uifaces/faces/twitter/calebogden/128.jpg", 1);
+        //get data from previous fragment
+        mSelectedContact = ViewContactFragmentArgs.fromBundle(getArguments()).getSelectedContact();
 
         Glide.with(this.getContext())
-                .load(mCurrentContact.getImageUrl())
+                .load(mSelectedContact.getImageUrl())
                 .apply(RequestOptions.circleCropTransform())
                 .into(mImageView);
 
-        String name = mCurrentContact.getFirstName() + " " + mCurrentContact.getLastName();
+        String name = mSelectedContact.getFirstName() + " " + mSelectedContact.getLastName();
         mNameTextView.setText(name);
-        mContactIDTextView.setText("" + mCurrentContact.getContactID());
+        mContactIDTextView.setText("" + mSelectedContact.getContactID());
     }
 }

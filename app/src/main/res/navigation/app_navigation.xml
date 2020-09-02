@@ -26,6 +26,9 @@
         <action
             android:id="@+id/action_ViewContactFragment_to_EditContactFragment"
             app:destination="@id/EditContactFragment" />
+        <argument
+            android:name="selectedContact"
+            app:argType="com.example.contactsapp.Contact" />
     </fragment>
 
     <fragment
@@ -34,6 +37,12 @@
         android:label="@string/Contacts"
         tools:layout="@layout/fragment_edit_contact" >
 
+        <action
+            android:id="@+id/action_EditContactFragment_to_MainContactsFragment"
+            app:destination="@id/MainContactsFragment" />
+        <argument
+            android:name="selectedContact"
+            app:argType="com.example.contactsapp.Contact" />
     </fragment>
 
 

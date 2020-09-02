@@ -2,6 +2,7 @@ package com.example.contactsapp;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -78,10 +79,9 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.ViewHo
 
         @Override
         public void onClick(View v) {
-
-             //TODO: Pass actual data
-                mNavController.navigate(MainContactsFragmentDirections.actionMainContactsFragmentToViewContactFragment());
-                Toast.makeText(mContext, "View clicked", Toast.LENGTH_SHORT).show();
+             Contact selectedContact  = mContactsList.get(getAdapterPosition());
+             mNavController.navigate(MainContactsFragmentDirections.actionMainContactsFragmentToViewContactFragment(selectedContact));
+             Toast.makeText(mContext, "View clicked", Toast.LENGTH_SHORT).show();
 
         }
     }

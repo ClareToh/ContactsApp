@@ -12,17 +12,27 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class EditContactFragment extends Fragment {
-    private Contact mCurrentCount;
     private Button mDoneButton;
+    private Contact mSelectedContact;
+
+    private ImageView mImageView;
+    private TextView mContactIDTextView;
+    private TextView mFirstNameTextView;
+    private TextView mLastNameTextView;
 
 
-    public EditContactFragment() {
+    public  EditContactFragment() {
         // Required empty public constructor
     }
 
@@ -37,21 +47,39 @@ public class EditContactFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        //Change the buttons on the app bar layout
+        //Show only done button
+        ((MainActivity) getActivity()).findViewById(R.id.add_contact_button).setVisibility(View.GONE);
         ((MainActivity) getActivity()).findViewById(R.id.edit_button).setVisibility(View.GONE);
+
         mDoneButton = ((MainActivity) getActivity()).findViewById(R.id.done_button);
         mDoneButton.setVisibility(View.VISIBLE);
         mDoneButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //TODO: update the data to backend
+                //Go back to main page after complete
+                NavController navController = NavHostFragment.findNavController(EditContactFragment.this);
+                navController.navigate(EditContactFragmentDirections.actionEditContactFragmentToMainContactsFragment());
+
             }
         });
 
-        //TODO: remove and change to get actual data from previous fragment
-        Contact egContact = new Contact("George", "Bluth", "https://s3.amazonaws.com/uifaces/faces/twitter/calebogden/128.jpg", 1);
+        //Views for contact details
+        mImageView = view.findViewById(R.id.edit_contact_imageView);
+        mContactIDTextView = view.findViewById(R.id.edit_contactID_value_textView);
+        mFirstNameTextView = view.findViewById(R.id.edit_contact_firstName_EditText);
+        mLastNameTextView = view.findViewById(R.id.edit_contact_lastName_editText);;
 
+        //get data from previous fragment
+        mSelectedContact = EditContactFragmentArgs.fromBundle(getArguments()).getSelectedContact();
 
+        Glide.with(this.getContext())
+                .load(mSelectedContact.getImageUrl())
+                .apply(RequestOptions.circleCropTransform())
+                .into(mImageView);
 
+        mContactIDTextView.setText(""+mSelectedContact.getContactID());
+        mFirstNameTextView.setText(mSelectedContact.getFirstName());
+        mLastNameTextView.setText(mSelectedContact.getLastName());
     }
 }

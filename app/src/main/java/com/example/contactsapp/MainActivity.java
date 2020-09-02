@@ -13,9 +13,6 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
     private Toolbar mToolbar;
-    private Button mAddContactsButton;
-    private Button mEditContactsButton;
-    private Button mDoneButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,30 +22,6 @@ public class MainActivity extends AppCompatActivity {
 
         mToolbar = findViewById(R.id.toolbar);
         setSupportActionBar(mToolbar);
-
-        mAddContactsButton = findViewById(R.id.add_contact_button);
-        mAddContactsButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
-
-//        mEditContactsButton = findViewById(R.id.edit_button);
-//        mEditContactsButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//            }
-//        });
-//
-//        mDoneButton = findViewById(R.id.done_button);
-//        mDoneButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//            }
-//        });
 
     }
 
