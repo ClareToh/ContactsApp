@@ -41,6 +41,7 @@ public class MainContactsFragment extends Fragment {
     public void onViewCreated(View view,  Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        //TODO: remove and change to get actual data
         Contact egContact = new Contact("George", "Bluth", "https://s3.amazonaws.com/uifaces/faces/twitter/calebogden/128.jpg", 1);
 
         //Initialize the RecyclerView and set layout manager

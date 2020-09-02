@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:layout_margin="16dp"
+    tools:context=".EditContactFragment">
+
+    <ImageView
+        android:id="@+id/editContactImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginVertical="16dp"
+        android:src="@drawable/image_potrait_placeholder" />
+
+
+    <!--ContactID-->
+    <TextView
+        android:id="@+id/edit_contactID_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editContactImageView"
+        android:layout_marginVertical="8dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="-140dp"
+        android:layout_toStartOf="@id/edit_contactID_value_textView"
+        android:text="ContactID: "
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/edit_contactID_value_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editContactImageView"
+        android:layout_marginVertical="8dp"
+        android:layout_marginStart="160dp"
+        android:layout_marginTop="-233dp"
+        android:text="ContactID"
+        android:textSize="20dp" />
+
+
+    <!--FIRSTNAME-->
+    <TextView
+        android:id="@+id/edit_contact_firstName_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/edit_contact_firstName_EditText"
+        android:layout_alignBottom="@+id/edit_contact_firstName_EditText"
+        android:layout_marginVertical="8dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="-140dp"
+        android:layout_marginBottom="21dp"
+        android:layout_toStartOf="@id/edit_contact_firstName_EditText"
+        android:text="First name: "
+        android:textSize="20dp" />
+
+    <EditText
+        android:id="@+id/edit_contact_firstName_EditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edit_contactID_textView"
+        android:layout_alignParentEnd="false"
+        android:layout_marginVertical="8dp"
+        android:layout_marginStart="160dp"
+        android:layout_marginTop="-233dp"
+        android:text="FirstName"
+        android:textSize="20dp" />
+
+
+    <!--LASTNAME-->
+    <TextView
+        android:id="@+id/edit_contact_lastName_viewText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/edit_contact_lastName_editText"
+        android:layout_alignBottom="@+id/edit_contact_lastName_editText"
+        android:layout_marginVertical="8dp"
+        android:layout_marginTop="-21dp"
+        android:layout_marginEnd="-140dp"
+        android:layout_marginBottom="42dp"
+        android:layout_toStartOf="@id/edit_contact_lastName_editText"
+        android:text="LastName"
+        android:textSize="20dp" />
+
+    <EditText
+        android:id="@+id/edit_contact_lastName_editText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edit_contact_firstName_EditText"
+        android:layout_alignParentEnd="false"
+        android:layout_marginVertical="8dp"
+        android:layout_marginStart="160dp"
+        android:layout_marginTop="-233dp"
+        android:text="LastName"
+        android:textSize="20dp" />
+
+
+
+</RelativeLayout>

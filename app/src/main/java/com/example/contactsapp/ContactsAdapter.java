@@ -8,9 +8,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import androidx.navigation.NavController;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -76,7 +78,11 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.ViewHo
 
         @Override
         public void onClick(View v) {
-            //Go into view-contacts page
+
+             //TODO: Pass actual data
+                mNavController.navigate(MainContactsFragmentDirections.actionMainContactsFragmentToViewContactFragment());
+                Toast.makeText(mContext, "View clicked", Toast.LENGTH_SHORT).show();
+
         }
     }
 

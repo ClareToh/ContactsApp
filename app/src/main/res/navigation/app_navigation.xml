@@ -11,9 +11,30 @@
         android:name="com.example.contactsapp.MainContactsFragment"
         android:label="@string/Contacts"
         tools:layout="@layout/fragment_main_contacts" >
+
+        <action
+            android:id="@+id/action_MainContactsFragment_to_ViewContactFragment"
+            app:destination="@id/ViewContactFragment" />
     </fragment>
 
+    <fragment
+        android:id="@+id/ViewContactFragment"
+        android:name="com.example.contactsapp.ViewContactFragment"
+        android:label="@string/Contacts"
+        tools:layout="@layout/fragment_view_contact" >
 
+        <action
+            android:id="@+id/action_ViewContactFragment_to_EditContactFragment"
+            app:destination="@id/EditContactFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/EditContactFragment"
+        android:name="com.example.contactsapp.EditContactFragment"
+        android:label="@string/Contacts"
+        tools:layout="@layout/fragment_edit_contact" >
+
+    </fragment>
 
 
 </navigation>
